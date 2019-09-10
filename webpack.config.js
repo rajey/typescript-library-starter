@@ -2,6 +2,7 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const TypedocWebpackPlugin = require('typedoc-webpack-plugin');
 const { env } = require('yargs').argv;
 const package = require('./package.json');
 
@@ -10,7 +11,7 @@ const libraryName = package.name;
 
 module.exports = {
   mode: isProduction ? 'production' : 'development',
-  entry: './src/index.ts',
+  entry: './lib/src/index.ts',
   devtool: 'inline-source-map',
   optimization: {
     minimizer: [new UglifyJsPlugin()]
@@ -38,9 +39,17 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
-      { from: 'src/package.json', to: '' },
-      { from: 'src/*.md', to: '', flatten: true },
+      { from: 'lib/package.json', to: '' },
+      { from: 'lib/*.md', to: '', flatten: true },
       { from: 'LICENSE', to: '' }
-    ])
+    ]),
+    new TypedocWebpackPlugin({
+      name: 'Typescript Library',
+      mode: 'file',
+      out: '../docs',
+      theme: 'default',
+      includeDeclarations: false,
+      ignoreCompilerErrors: true
+    })
   ]
 };
