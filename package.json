@@ -23,7 +23,10 @@
     "@types/jest": "^24.0.18",
     "@types/lodash": "^4.14.138",
     "clean-webpack-plugin": "^3.0.0",
+    "commitizen": "^4.0.3",
     "copy-webpack-plugin": "^5.0.4",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.5",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
     "ts-loader": "^6.0.4",
@@ -36,5 +39,10 @@
   },
   "dependencies": {
     "lodash": "^4.17.15"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
