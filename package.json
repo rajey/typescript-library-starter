@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --env dev",
     "build": "webpack --env prod",
     "test": "jest",
-    "generate-docs": "node_modules/.bin/jsdoc -c jsdoc.json"
+    "docs": "node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
