@@ -21,10 +21,3 @@ install:
 
 script:
   - npm test
-
-notifications:
-  email:
-    recipients:
-      - rajeyw@gmail.com
-    on_failure: always
-    on_success: always
